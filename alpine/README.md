@@ -12,5 +12,5 @@ docker pull nentangso/alpine-git-curl-jq
 Build fresh image
 
 ```sh
-docker build -f Dockerfile.curl-jq -t alpine-git-curl-jq .
+docker build -f Dockerfile.git-curl-jq -t alpine-git-curl-jq .
 ```
