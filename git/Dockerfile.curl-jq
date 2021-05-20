@@ -1,0 +1,9 @@
+FROM alpine:latest
+RUN apk --no-cache add \
+        git \
+        curl \
+        openssl \
+        jq
+RUN git --version
+RUN curl -V
+RUN jq --version
