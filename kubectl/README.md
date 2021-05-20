@@ -12,5 +12,5 @@ docker pull nentangso/kubectl-git
 Build fresh image
 
 ```sh
-docker build -f kubectl/Dockerfile.git -t kubectl-git .
+docker build -f Dockerfile.git -t kubectl-git .
 ```
