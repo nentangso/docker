@@ -1,5 +1,4 @@
 # docker
-> Moved to [https://github.com/nentangso/docker](https://github.com/nentangso/docker)
 
 List of docker images
 
