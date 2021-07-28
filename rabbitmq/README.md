@@ -1,4 +1,6 @@
-RabbitMQ include plugins web stomp, delayed message exchange
+# RabbitMQ
+
+Docker image: rabbitmq includes plugins web stomp, delayed message exchange
 
 Docker Hub [https://hub.docker.com/r/nentangso/rabbitmq-web-stomp-delayed-message-exchange](https://hub.docker.com/r/nentangso/rabbitmq-web-stomp-delayed-message-exchange)
 

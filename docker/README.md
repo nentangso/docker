@@ -1,5 +1,6 @@
-# docker-aws
-Docker in docker include aws cli v2
+# docker
+
+Docker image: docker includes aws cli v2
 
 Docker Hub [https://hub.docker.com/r/nentangso/docker-aws](https://hub.docker.com/r/nentangso/docker-aws)
 

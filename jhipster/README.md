@@ -1,5 +1,6 @@
-# jhipster-aws
-Jhipster include aws cli
+# jhipster
+
+Docker image: jhipster/jhipster includes aws cli
 
 Docker Hub [https://hub.docker.com/r/nentangso/jhipster-aws](https://hub.docker.com/r/nentangso/jhipster-aws)
 

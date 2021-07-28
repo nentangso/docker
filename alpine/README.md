@@ -1,5 +1,6 @@
-# alpine-git-curl-jq
-Alpine include git, curl and jq
+# alpine
+
+Docker image: alpine includes git, curl and jq
 
 Docker Hub [https://hub.docker.com/r/nentangso/alpine-git-curl-jq](https://hub.docker.com/r/nentangso/alpine-git-curl-jq)
 

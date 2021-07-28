@@ -1,5 +1,6 @@
-# kubectl-git
-Docker image: bitnami/kubectl include git
+# kubectl
+
+Docker image: bitnami/kubectl includes git
 
 Docker Hub [https://hub.docker.com/r/nentangso/kubectl-git](https://hub.docker.com/r/nentangso/kubectl-git)
 
