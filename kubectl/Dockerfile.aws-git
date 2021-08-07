@@ -1,13 +1,13 @@
-FROM jhipster/jhipster
-
-ENV GLIBC_VER=2.31-r0
+FROM bitnami/kubectl
 
 USER root
+
 RUN apt-get update \
     && apt-get install -y \
         binutils \
         curl \
         unzip \
+        git \
     && curl -sL https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip \
     && unzip awscliv2.zip \
     && aws/install \
@@ -18,6 +18,10 @@ RUN apt-get update \
         /usr/local/aws-cli/v2/*/dist/awscli/data/ac.index \
         /usr/local/aws-cli/v2/*/dist/awscli/examples \
     && rm -rf /var/lib/apt/lists/*
-USER jhipster
 
+RUN kubectl version --short --client
 RUN aws --version
+RUN git --version
+
+ENTRYPOINT [""]
+CMD ["sleep" "3600"]
