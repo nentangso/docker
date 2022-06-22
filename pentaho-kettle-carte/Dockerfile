@@ -32,5 +32,5 @@ ADD docker-entrypoint.sh docker-entrypoint.sh
 
 EXPOSE 8080
 
-ENTRYPOINT [ "${KETTLE_BINARY}/docker-entrypoint.sh" ]
+ENTRYPOINT [ "./docker-entrypoint.sh" ]
 CMD [ "master" ]
