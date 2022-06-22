@@ -27,6 +27,7 @@ set -e
 : ${REPOSITORY_NAME:="Pentaho Repository"}
 : ${REPOSITORY_USERNAME:="admin"}
 : ${REPOSITORY_PASSWORD:="admin"}
+
 : ${KETTLE_PROPERTIES_READ_ONLY:="N"}
 
 _gen_password() {
