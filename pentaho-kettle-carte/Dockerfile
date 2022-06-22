@@ -4,14 +4,18 @@ LABEL MAINTAINER="Tien Tran <tientq@outlook.com>"
 
 RUN apk add --update curl unzip
 
-WORKDIR /opt/
+ARG PENTAHO_HOME=/opt/pentaho
+ARG KETTLE_HOME=${PENTAHO_HOME}/data-integration
+ENV KETTLE_BINARY=${PENTAHO_HOME}/data-integration
+
+WORKDIR ${PENTAHO_HOME}
 
 ARG PENTAHO_VERSION=9.3
 ARG PENTAHO_BUILD_NUMBER=9.3.0.0-428
 RUN curl -sL https://sourceforge.net/projects/pentaho/files/Pentaho-${PENTAHO_VERSION}/client-tools/pdi-ce-${PENTAHO_BUILD_NUMBER}.zip/download -o pdi-ce-${PENTAHO_BUILD_NUMBER}.zip
 RUN unzip pdi-ce-${PENTAHO_BUILD_NUMBER}.zip && rm -Rf pdi-ce-9.3.0.0-428.zip pdi-ce-9.3.0.0-428.zip.sum
 
-WORKDIR /opt/data-integration/
+WORKDIR ${KETTLE_BINARY}
 
 # install mysql driver
 ARG MYSQL_DRIVER_VERSION=8.0.29
@@ -24,9 +28,9 @@ RUN curl -sfL https://github.com/AgoraData/PDI-Plugin-Step-AMQP/releases/downloa
   && mv ic-amqp-plugin plugins/steps \
   && rm ic-amqp-plugin.zip
 
-ADD .kettle /root/.kettle
+ADD docker-entrypoint.sh docker-entrypoint.sh
 
 EXPOSE 8080
 
-ENTRYPOINT [ "/opt/data-integration/carte.sh" ]
-CMD [ "0.0.0.0", "8080" ]
+ENTRYPOINT [ "${KETTLE_BINARY}/docker-entrypoint.sh" ]
+CMD [ "master" ]
