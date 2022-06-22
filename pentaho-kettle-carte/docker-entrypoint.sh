@@ -9,7 +9,7 @@ set -e
 : ${PDI_MAX_LOG_TIMEOUT:="1440"}
 : ${PDI_MAX_OBJ_TIMEOUT:="240"}
 
-: ${SERVER_NAME:="pdi-server"}
+: ${SERVER_NAME:="`hostname`"}
 : ${SERVER_HOST:="`hostname`"}
 : ${SERVER_PORT:="8080"}
 : ${SERVER_USER:="admin"}
@@ -86,7 +86,7 @@ KETTLE_STEP_PERFORMANCE_SNAPSHOT_LIMIT=1
 EOF
 	fi
 	if [ ! -f classes/log4j.xml ]; then
-		mkdir classes
+		mkdir -p classes
 		echo "Generating log4j.xml..."
 		cat << EOF > classes/log4j.xml
 <?xml version="1.0" encoding="UTF-8"?>
