@@ -27,6 +27,7 @@ set -e
 : ${REPOSITORY_NAME:="Pentaho Repository"}
 : ${REPOSITORY_USERNAME:="admin"}
 : ${REPOSITORY_PASSWORD:="admin"}
+: ${KETTLE_PROPERTIES_READ_ONLY:="N"}
 
 _gen_password() {
   echo "Generating encrypted password..."
@@ -141,7 +142,7 @@ gen_slave_config() {
     fi
 
     # this is tricky as encr.sh will generate kettle.properties without required configuration
-    rm -f $KETTLE_HOME/.kettle/kettle.properties
+    [[ "$KETTLE_PROPERTIES_READ_ONLY" != "Y" ]] && rm -f $KETTLE_HOME/.kettle/kettle.properties
     
     cat << EOF > pwd/slave.xml
 <slave_config>
@@ -183,7 +184,7 @@ gen_master_config() {
     echo "Generating master server configuration..."
     _gen_password
 
-    rm -f $KETTLE_HOME/.kettle/kettle.properties
+    [[ "$KETTLE_PROPERTIES_READ_ONLY" != "Y" ]] && rm -f $KETTLE_HOME/.kettle/kettle.properties
 
     cat << EOF > pwd/master.xml
 <slave_config>
