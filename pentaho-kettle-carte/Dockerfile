@@ -5,8 +5,8 @@ LABEL MAINTAINER="Tien Tran <tientq@outlook.com>"
 RUN apk add --update curl unzip
 
 ARG PENTAHO_HOME=/opt/pentaho
-ARG KETTLE_HOME=${PENTAHO_HOME}/data-integration
-ENV KETTLE_BINARY=${PENTAHO_HOME}/data-integration
+ARG KETTLE_BINARY=${PENTAHO_HOME}/data-integration
+ENV KETTLE_HOME=${PENTAHO_HOME}/data-integration
 
 WORKDIR ${PENTAHO_HOME}
 
