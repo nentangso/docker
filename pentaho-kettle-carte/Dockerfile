@@ -29,6 +29,7 @@ RUN curl -sfL https://github.com/AgoraData/PDI-Plugin-Step-AMQP/releases/downloa
   && rm ic-amqp-plugin.zip
 
 ADD docker-entrypoint.sh docker-entrypoint.sh
+RUN chmod +x docker-entrypoint.sh
 
 EXPOSE 8080
 
