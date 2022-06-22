@@ -194,6 +194,11 @@ gen_master_config() {
             <master>Y</master>
             <sslMode>N</sslMode>
         </slaveserver>
+        <repository>
+          <name>${REPOSITORY_NAME}</name>
+          <username>${REPOSITORY_USERNAME}</username>
+          <password>${REPOSITORY_PASSWORD}</password>
+        </repository>
 		<report_to_masters>Y</report_to_masters>
         <max_log_lines>${PDI_MAX_LOG_LINES}</max_log_lines>
         <max_log_timeout_minutes>${PDI_MAX_LOG_TIMEOUT}</max_log_timeout_minutes>
