@@ -24,9 +24,9 @@ set -e
 : ${MASTER_USER:="admin"}
 : ${MASTER_PASSWORD:="password"}
 
-: ${REPOSITORY_NAME:="Pentaho Repository"}
-: ${REPOSITORY_USERNAME:="admin"}
-: ${REPOSITORY_PASSWORD:="admin"}
+: ${KETTLE_REPOSITORY:="pentaho_repository"}
+: ${KETTLE_USER:="admin"}
+: ${KETTLE_PASSWORD:="admin"}
 
 : ${KETTLE_PROPERTIES_READ_ONLY:="N"}
 
@@ -199,9 +199,9 @@ gen_master_config() {
         <sslMode>${SERVER_SSL_MODE}</sslMode>
     </slaveserver>
     <repository>
-      <name>${REPOSITORY_NAME}</name>
-      <username>${REPOSITORY_USERNAME}</username>
-      <password>${REPOSITORY_PASSWORD}</password>
+      <name>${KETTLE_REPOSITORY}</name>
+      <username>${KETTLE_USER}</username>
+      <password>${KETTLE_PASSWORD}</password>
     </repository>
     <report_to_masters>Y</report_to_masters>
     <max_log_lines>${PDI_MAX_LOG_LINES}</max_log_lines>
@@ -236,4 +236,3 @@ else
   _gen_password
   exec ./carte.sh "$@"
 fi
-
