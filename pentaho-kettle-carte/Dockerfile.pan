@@ -1,0 +1,11 @@
+FROM kettle AS pan
+
+ENV KETTLE_DIR=
+ENV KETTLE_TRANS=
+ENV KETTLE_LOGGING_LEVEL=Basic
+ENV KETTLE_MAX_LOG_LINES=10000
+ENV KETTLE_MAX_LOG_TIMEOUT=4320
+ENV KETTLE_EXTRA_ARGS=
+
+ENTRYPOINT [ "/opt/pentaho/data-integration/pan.sh" ]
+CMD [ "-norep", "-dir=${KETTLE_DIR}", "-trans=${KETTLE_TRANS}", "-level=${KETTLE_LOGGING_LEVEL}", "-maxloglines=${KETTLE_MAX_LOG_LINES}", "-maxlogtimeout=${KETTLE_MAX_LOG_TIMEOUT}", "${KETTLE_EXTRA_ARGS}" ]

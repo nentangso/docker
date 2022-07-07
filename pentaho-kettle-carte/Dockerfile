@@ -1,5 +1,5 @@
 ARG JDK_TAG=8-jdk-alpine
-FROM openjdk:${JDK_TAG}
+FROM openjdk:${JDK_TAG} AS kettle
 LABEL MAINTAINER="Tien Tran <tientq@outlook.com>"
 
 RUN apk add --update curl unzip
@@ -28,6 +28,7 @@ RUN curl -sfL https://github.com/AgoraData/PDI-Plugin-Step-AMQP/releases/downloa
   && mv ic-amqp-plugin plugins/steps \
   && rm ic-amqp-plugin.zip
 
+FROM kettle AS carte
 ADD docker-entrypoint.sh docker-entrypoint.sh
 RUN chmod +x docker-entrypoint.sh
 
