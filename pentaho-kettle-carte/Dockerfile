@@ -29,11 +29,11 @@ RUN curl -sfL https://github.com/AgoraData/PDI-Plugin-Step-AMQP/releases/downloa
   && rm ic-amqp-plugin.zip
 
 # install Google Sheets plugin
-ARG PENTAHO_GOOGLE_SHEETS_VERSION=5
+ARG PENTAHO_GOOGLE_SHEETS_VERSION=4.2
 RUN curl -sfL https://github.com/jfmonteil/Pentaho-Google-Sheet-Plugin/archive/refs/heads/master.zip -o Pentaho-Google-Sheet-Plugin.zip \
   && unzip Pentaho-Google-Sheet-Plugin.zip \
-  && unzip Pentaho-Google-Sheet-Plugin-master/delivery/PentahoGoogleSheetsPlugin-5-distribution.zip \
-  && mv PentahoGoogleSheetsPlugin-5 plugins/steps \
+  && unzip Pentaho-Google-Sheet-Plugin-master/delivery/PentahoGoogleSheetsPlugin-marketplace.zip \
+  && mv PentahoGoogleSheetsPlugin-${PENTAHO_GOOGLE_SHEETS_VERSION} plugins/steps \
   && rm -Rf Pentaho-Google-Sheet-Plugin-master Pentaho-Google-Sheet-Plugin.zip
 
 FROM kettle AS carte
