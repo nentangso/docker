@@ -28,6 +28,14 @@ RUN curl -sfL https://github.com/AgoraData/PDI-Plugin-Step-AMQP/releases/downloa
   && mv ic-amqp-plugin plugins/steps \
   && rm ic-amqp-plugin.zip
 
+# install Google Sheets plugin
+ARG PENTAHO_GOOGLE_SHEETS_VERSION=5
+RUN curl -sfL https://github.com/jfmonteil/Pentaho-Google-Sheet-Plugin/archive/refs/heads/master.zip -o Pentaho-Google-Sheet-Plugin.zip \
+  && unzip Pentaho-Google-Sheet-Plugin.zip \
+  && unzip Pentaho-Google-Sheet-Plugin-master/delivery/PentahoGoogleSheetsPlugin-5-distribution.zip \
+  && mv PentahoGoogleSheetsPlugin-5 plugins/steps \
+  && rm -Rf Pentaho-Google-Sheet-Plugin-master Pentaho-Google-Sheet-Plugin.zip
+
 FROM kettle AS carte
 ADD docker-entrypoint.sh docker-entrypoint.sh
 RUN chmod +x docker-entrypoint.sh
