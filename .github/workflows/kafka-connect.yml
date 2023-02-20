@@ -1,4 +1,4 @@
-name: Build and Push Containerd Image to Docker Hub
+name: Build kafka-connect
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - .github/workflows/kafka-connect.yml
 
 env:
-  IMAGE_NAME: kafka-connect
+  IMAGE_NAME: ${{ secrets.DOCKER_ORG }}/kafka-connect
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
