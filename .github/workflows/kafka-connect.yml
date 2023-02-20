@@ -43,7 +43,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: |
             ${{ env.IMAGE_NAME }}:latest
-            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:${{ github.sha | slice(0,7) }}
           build-args: |
             CONTAINERD_VERSION=1.5.5
 
