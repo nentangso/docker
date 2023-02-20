@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'kafka-connect/**'
-      - .github/kafka-connect.yml
+      - .github/workflows/kafka-connect.yml
 
 env:
   IMAGE_NAME: kafka-connect
