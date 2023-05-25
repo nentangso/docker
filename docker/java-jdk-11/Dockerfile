@@ -1,7 +1,7 @@
 ARG DOCKER_VERSION=stable
 FROM docker:${DOCKER_VERSION}
 
-ENV GLIBC_VER=2.31-r0
+ENV GLIBC_VER=2.35-r1
 
 # install glibc compatibility for alpine
 RUN apk --no-cache add \
