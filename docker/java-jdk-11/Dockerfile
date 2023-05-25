@@ -13,21 +13,18 @@ RUN apk --no-cache add \
     && apk add --no-cache \
         glibc-${GLIBC_VER}.apk \
         glibc-bin-${GLIBC_VER}.apk \
-    && curl -sL https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip \
-    && unzip awscliv2.zip \
-    && aws/install \
-    && rm -rf \
-        awscliv2.zip \
-        aws \
-        /usr/local/aws-cli/v2/*/dist/aws_completer \
-        /usr/local/aws-cli/v2/*/dist/awscli/data/ac.index \
-        /usr/local/aws-cli/v2/*/dist/awscli/examples \
-    && apk --no-cache del \
-        binutils \
     && rm glibc-${GLIBC_VER}.apk \
     && rm glibc-bin-${GLIBC_VER}.apk \
     && rm -rf /var/cache/apk/*
 RUN docker -v
+
+RUN apk add --no-cache \
+        python3 \
+        py3-pip \
+    && pip3 install --upgrade pip \
+    && pip3 install --no-cache-dir \
+        awscli \
+    && rm -rf /var/cache/apk/*
 RUN aws --version
 
 RUN apk --no-cache add \
