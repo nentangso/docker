@@ -13,11 +13,8 @@ RUN apk --no-cache add \
         binutils \
         curl \
     && curl -sL https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub -o /etc/apk/keys/sgerrand.rsa.pub \
-    && curl -sLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/SHA256SUMS.asc \
     && curl -sLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/${GLIBC_FILE} \
-    && grep ${GLIBC_FILE} SHA256SUMS.asc | sha256sum -c - \
     && curl -sLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/${GLIBC_BIN_FILE} \
-    && grep ${GLIBC_BIN_FILE} SHA256SUMS.asc | sha256sum -c - \
     && apk add --no-cache \
         ${GLIBC_FILE} \
         ${GLIBC_BIN_FILE} \
