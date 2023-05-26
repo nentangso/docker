@@ -4,8 +4,8 @@ FROM docker:${DOCKER_VERSION}
 # install glibc compatibility for alpine
 ENV GLIBC_VER=2.35-r1
 
-ENV GLIBC_FILE glibc-${GLIBC_VERSION}.apk
-ENV GLIBC_BIN_FILE glibc-bin-${GLIBC_VERSION}.apk
+ENV GLIBC_FILE glibc-${GLIBC_VER}.apk
+ENV GLIBC_BIN_FILE glibc-bin-${GLIBC_VER}.apk
 
 RUN apk --no-cache add \
         binutils \
