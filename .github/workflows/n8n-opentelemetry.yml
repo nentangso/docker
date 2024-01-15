@@ -25,13 +25,7 @@ jobs:
 
       - name: Set outputs
         id: vars
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-
-      - uses: little-core-labs/get-git-tag@v3.0.1
-        id: tagName
-        with:
-          tagRegex: "nentangso/n8n-opentelemetry/(.*)"
-          tagRegexGroup: 1
+        run: echo "app_version=$(cat nentangso/n8n-opentelemetry/.version)" >> $GITHUB_OUTPUT
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -53,8 +47,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tags: |
             ${{ env.IMAGE_NAME }}:latest
-            ${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.sha_short }}
-            ${{ env.IMAGE_NAME }}:${{ steps.tagName.outputs.tag }}
+            ${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.app_version }}
           build-args: |
             CONTAINERD_VERSION=1.5.5
 
