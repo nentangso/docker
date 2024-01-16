@@ -50,6 +50,7 @@ jobs:
             ${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.app_version }}
           build-args: |
             CONTAINERD_VERSION=1.5.5
+            N8N_VERSION=${{ steps.vars.outputs.app_version }}
 
       - name: Clean up
         run: |
